@@ -1,27 +1,45 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>
-      List
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>
+        Products
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
 
-<ion-content>
-  <ion-list>
-    <ion-item *ngFor="let item of items">
-      <ion-icon [name]="item.icon" slot="start"></ion-icon>
-      {{item.title}}
-      <div class="item-note" slot="end">
-        {{item.note}}
-      </div>
-    </ion-item>
-  </ion-list>
-  <!--
-    <div *ngIf="selectedItem" padding>
-      You navigated here from <b>{{selectedItem.title }}</b>
-    </div>
-  -->
+<ion-content padding>
+  <table class="table">
+    <tbody>
+      <ion-list>
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Category ID</th>
+            <th scope="col">Stock</th>
+            <th scope="col">Actions</th>   
+          </tr>
+        </thead>
+        <tr *ngFor="let item of productsData">
+         <td>{{item.id}}</td>
+          <td>{{item.name}}</td>
+          <td>{{item.category_id}}</td>
+          <td>{{item.stock}}</td>
+          <td style="display: flex">
+              <ion-button color="warning" size="small" routerLink='/update/{{item.id}}'>
+                <ion-icon name="create"></ion-icon>
+              </ion-button>
+              <ion-button color="danger" size="small" (click)="delete(item)">
+                <ion-icon name="trash"></ion-icon>
+              </ion-button>
+            </td>
+      </tr>
+      </ion-list>
+    </tbody>
+  </table>
+<ion-button [routerLink]="['/create']">
+      Add Products
+    </ion-button>
 </ion-content>

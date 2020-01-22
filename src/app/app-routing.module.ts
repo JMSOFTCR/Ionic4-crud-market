@@ -14,6 +14,14 @@ const routes: Routes = [
   {
     path: 'list',
     loadChildren: () => import('./list/list.module').then(m => m.ListPageModule)
+  },
+  {
+    path: 'create',
+    loadChildren: () => import('./create/create/create.module').then( m => m.CreatePageModule)
+  },
+  {
+    path: 'update/:id',
+    loadChildren: () => import('./update/update/update.module').then( m => m.UpdatePageModule)
   }
 ];
 
