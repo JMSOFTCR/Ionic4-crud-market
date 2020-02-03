@@ -29,23 +29,16 @@ product: Products[] = [];
   }
 
   async getAllProducts(){
-    
-    // const loading = await this.loadingCtrl.create({
-    //   message: 'Cargando..',
-    // });
-    // await loading.present();
-    // this.apiService.getList()
-    // .subscribe(async (product) => {
-    //   console.log(product);
-    //   this.product = product;
-    //   await loading.dismiss();
-    // });
-    
-    
+
     //get saved list of products
+    const loading = await this.loadingCtrl.create({
+      message: 'Cargando..',
+    });
+    await loading.present();
      this.apiService.getList().subscribe(response => {
       console.log(response);
       this.productsData = response;
+       loading.dismiss();
     });   
   }
 
