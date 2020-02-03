@@ -1,7 +1,9 @@
 export class Products {
-id: number;
+id?: string;
 category_id: number; 
 name: string;
 stock: number;
-description: string; 
+description: string;
+image_url: string;
+created_at: Date;
 }

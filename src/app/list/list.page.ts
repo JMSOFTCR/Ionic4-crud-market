@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../services/api.service'
+import { ApiService } from '../services/api.service';
+
+import { Products } from "../models/products";
+
+import { AlertController, ToastController, LoadingController } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-list',
@@ -9,22 +14,39 @@ import { ApiService } from '../services/api.service'
 export class ListPage implements OnInit {
 productsData: any;
 
+product: Products[] = [];
+
    constructor(
-     public apiService : ApiService 
+     public apiService : ApiService,
+     private toastCtrl: ToastController,
+     private loadingCtrl: LoadingController 
    ) {
     this.productsData = [];
   }
 
-  ngOnInit() {
+  async ngOnInit() {
     this.getAllProducts();
   }
 
-  getAllProducts(){
+  async getAllProducts(){
+    
+    // const loading = await this.loadingCtrl.create({
+    //   message: 'Cargando..',
+    // });
+    // await loading.present();
+    // this.apiService.getList()
+    // .subscribe(async (product) => {
+    //   console.log(product);
+    //   this.product = product;
+    //   await loading.dismiss();
+    // });
+    
+    
     //get saved list of products
-    this.apiService.getList().subscribe(response => {
+     this.apiService.getList().subscribe(response => {
       console.log(response);
       this.productsData = response;
-    });  
+    });   
   }
 
   delete(item) {
@@ -33,6 +55,23 @@ productsData: any;
       //update list after delete id successfull
       this.getAllProducts();
     });
+  }
+
+  async presentToast(message: string) {
+    const toast = await this.toastCtrl.create({
+      message,
+      duration: 3000
+    });
+    await toast.present();
+  }
+
+  async presentLoading() {
+    const loading = await this.loadingCtrl.create({
+      message: 'Cargando..',
+      duration: 2000
+    });
+    await loading.present();
+    return loading;
   }
 
 }

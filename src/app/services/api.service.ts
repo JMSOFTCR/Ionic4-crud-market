@@ -48,7 +48,7 @@ export class ApiService {
   }
 
   //get single products data by ID
-  getItem(id): Observable<Products> {
+   getItem(id): Observable<Products> {
     return this.http
     .get<Products>(this.base_path + '/' + id)
     .pipe(
@@ -58,9 +58,9 @@ export class ApiService {
   }
 
   //get products data
-  getList(): Observable<Products> {
+  public getList(): Observable<Products[]> {
     return this.http
-    .get<Products>(this.base_path)
+    .get<Products[]>(this.base_path)
     .pipe(
       retry(2),
       catchError(this.handleError)
