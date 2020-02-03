@@ -11,27 +11,29 @@
 
 <ion-content padding >
   
-  <table class="table" >
+  <table class="table">
+  
     <tbody>
       <ion-list>
-        <thead>
-          <tr>
-            <th scope="col">Photo</th>           
-            <th scope="col">ID</th>
-            <th scope="col">Name</th>
-            <th scope="col">Category </th>
-            <th scope="col">Stock</th>
-            <th scope="col">Actions</th>   
-          </tr>
-        </thead>
+          <thead>
+            <tr>
+              <th scope="col">Photo</th>           
+              <th scope="col">ID</th>
+              <th scope="col">Name</th>
+              <th scope="col">Category </th>
+              <th scope="col">Stock</th>
+              <th scope="col">Actions</th>   
+            </tr>
+          </thead>
         <tr *ngFor="let item of productsData">
+       
           <ion-avatar >
             <img src="{{ item.image_url }}" /> 
           </ion-avatar>
-         <td>{{item.id}}</td>
+          <td>{{item.id}}</td>
           <td>{{item.name}}</td>
           <td>{{item.category_name}}</td>
-          <td>{{item.stock}}</td>
+          <td>{{item.stock}}</td> 
           <td style="display: flex">
               <ion-button color="warning" size="small" routerLink='/update/{{item.id}}'>
                 <ion-icon name="create"></ion-icon>
@@ -44,7 +46,13 @@
       </ion-list>
     </tbody>
   </table>
-<ion-button [routerLink]="['/create']">
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button [routerLink]="['/create']">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+<!-- <ion-button [routerLink]="['/create']">
       Add Products
-    </ion-button>
+    </ion-button> -->
 </ion-content>
