@@ -10,15 +10,28 @@
   </ion-header>
 
 <ion-content padding >
+
+  <!-- Theme classes dark, material, bootstrap -->
+  <ngx-datatable 
+  class="dark"
+  [limit]="8" 
+  [rows]="productsData" 
+  [rowHeight]="50" 
+  [columns]="columns"
+  [columnMode]="'force'" 
+  [sortType]="'multi'" 
+  [headerHeight]="50" 
+  [footerHeight]="50">
+</ngx-datatable>
   
-  <table class="table">
+  <!-- <table class="table">
   
     <tbody>
       <ion-list>
           <thead>
             <tr>
               <th scope="col">Photo</th>           
-              <th scope="col">ID</th>
+              <th scope="col">Code</th>
               <th scope="col">Name</th>
               <th scope="col">Category </th>
               <th scope="col">Stock</th>
@@ -28,11 +41,11 @@
         <tr *ngFor="let item of productsData">
        
           <ion-avatar >
-            <img src="{{ item.image_url }}" /> 
+            <img src="{{item.imagen}}" /> 
           </ion-avatar>
-          <td>{{item.id}}</td>
-          <td>{{item.name}}</td>
-          <td>{{item.category_name}}</td>
+          <td>{{item.codigo}}</td>
+          <td>{{item.nombre}}</td>
+          <td>{{item.categoria}}</td>
           <td>{{item.stock}}</td> 
           <td style="display: flex">
               <ion-button color="warning" size="small" routerLink='/update/{{item.id}}'>
@@ -45,7 +58,7 @@
       </tr>
       </ion-list>
     </tbody>
-  </table>
+  </table> -->
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button [routerLink]="['/create']">
       <ion-icon name="add"></ion-icon>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ApiService } from '../services/api.service';
 
 import { Products } from "../models/products";
@@ -9,10 +9,12 @@ import { AlertController, ToastController, LoadingController } from '@ionic/angu
 @Component({
   selector: 'app-list',
   templateUrl: 'list.page.html',
-  styleUrls: ['list.page.scss']
+  styleUrls: ['list.page.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class ListPage implements OnInit {
 productsData: any;
+public columns: any;
 
 product: Products[] = [];
 
@@ -22,6 +24,14 @@ product: Products[] = [];
      private loadingCtrl: LoadingController 
    ) {
     this.productsData = [];
+    this.columns = [
+      { name: 'Photo' },
+      { name: 'Codigo' },
+      { name: 'nombre' },
+      { name: 'Categoria' },
+      { name: 'Stock' },
+      { name: 'Actions' },
+    ];
   }
 
   async ngOnInit() {
@@ -29,7 +39,6 @@ product: Products[] = [];
   }
 
   async getAllProducts(){
-
     //get saved list of products
     const loading = await this.loadingCtrl.create({
       message: 'Cargando..',
