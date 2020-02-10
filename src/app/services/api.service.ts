@@ -9,7 +9,8 @@ import { retry, catchError } from 'rxjs/operators';
 })
 export class ApiService {
 
-  base_path = 'http://localhost:3000/products'
+  base_path = 'https://market-api-rest.herokuapp.com/products'
+  //base_path = 'http://localhost:3000/products'
 
   constructor(private http: HttpClient ) { }
 

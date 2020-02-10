@@ -10,13 +10,13 @@ import { AlertController, ToastController, LoadingController } from '@ionic/angu
   selector: 'app-list',
   templateUrl: 'list.page.html',
   styleUrls: ['list.page.scss'],
-  encapsulation: ViewEncapsulation.None
+  //encapsulation: ViewEncapsulation.None
 })
 export class ListPage implements OnInit {
 productsData: any;
-public columns: any;
+//public columns: any;
 
-product: Products[] = [];
+//product: Products[] = [];
 
    constructor(
      public apiService : ApiService,
@@ -24,14 +24,14 @@ product: Products[] = [];
      private loadingCtrl: LoadingController 
    ) {
     this.productsData = [];
-    this.columns = [
-      { name: 'Photo' },
+    /* this.columns = [
+      { name: 'imagen' },
       { name: 'Codigo' },
       { name: 'nombre' },
       { name: 'Categoria' },
       { name: 'Stock' },
       { name: 'Actions' },
-    ];
+    ]; */
   }
 
   async ngOnInit() {
