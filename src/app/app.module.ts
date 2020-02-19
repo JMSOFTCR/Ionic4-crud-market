@@ -11,6 +11,9 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { HttpClientModule} from '@angular/common/http';
 
+//import { ImagePicker } from '@ionic-native/image-picker';
+
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -21,6 +24,7 @@ import { HttpClientModule} from '@angular/common/http';
     HttpClientModule
   ],
   providers: [
+   // ImagePicker,
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }

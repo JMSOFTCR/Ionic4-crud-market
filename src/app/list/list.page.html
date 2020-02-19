@@ -23,42 +23,43 @@
   [headerHeight]="50" 
   [footerHeight]="50">
 </ngx-datatable> -->
-  
-   <table class="table">
-  
-    <tbody>
-      <ion-list>
-          <thead>
-            <tr>
-              <th scope="col">Photo</th>           
-             <!--  <th scope="col">Code</th> -->
-              <th scope="col">Name</th>
-              <th scope="col">Category </th>
-             <!--  <th scope="col">Stock</th> -->
-              <th scope="col">Actions</th>   
-            </tr>
-          </thead>
-        <tr *ngFor="let item of productsData">
-          
-          <ion-avatar >
-            <img src="{{item.imagen}}" /> 
-          </ion-avatar>
-         <!--  <td>{{item.codigo}}</td> -->
-          <td>{{item.nombre}}</td>
-          <td>{{item.categoria}}</td>
-        <!--   <td>{{item.stock}}</td>  -->
-          <td style="display: flex">
-              <ion-button color="warning" size="small" routerLink='/update/{{item.id}}'>
-                <ion-icon name="create"></ion-icon>
-              </ion-button>
-              <ion-button color="danger" size="small" (click)="delete(item)">
-                <ion-icon name="trash"></ion-icon>
-              </ion-button>
-            </td>
-      </tr>
-      </ion-list>
-    </tbody>
-  </table>
+   <div class="table-responsive">
+    <table class="table table-hover">
+      <tbody>
+        <ion-list>
+            <thead class="thead-dark">
+              <tr>
+
+                <th scope="col">Photo</th>           
+                <th scope="col">Code</th> 
+                <th scope="col">Name</th>
+                <th scope="col">Category </th>
+                <th scope="col">Stock</th>
+                <th scope="col">Actions</th>   
+              </tr>
+            </thead>
+          <tr *ngFor="let item of productsData">
+            
+            <ion-avatar >
+              <img src="{{item.imagen}}" /> 
+            </ion-avatar>
+            <td>{{item.codigo}}</td>
+            <td>{{item.nombre}}</td>
+            <td>{{item.categoria}}</td>
+            <td>{{item.stock}}</td> 
+            <td style="display: flex">
+                <ion-button color="warning" size="small" routerLink='/update/{{item.id}}'>
+                  <ion-icon name="create"></ion-icon>
+                </ion-button>
+                <ion-button color="danger" size="small" (click)="delete(item)">
+                  <ion-icon name="trash"></ion-icon>
+                </ion-button>
+              </td>
+        </tr>
+        </ion-list>
+      </tbody>
+    </table>
+   </div>
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button [routerLink]="['/create']">
       <ion-icon name="add"></ion-icon>
