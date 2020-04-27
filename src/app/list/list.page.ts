@@ -13,7 +13,10 @@ import { AlertController, ToastController, LoadingController } from '@ionic/angu
   //encapsulation: ViewEncapsulation.None
 })
 export class ListPage implements OnInit {
+pageActual: number = 1;
 productsData: any;
+
+
 //public columns: any;
 
 //product: Products[] = [];
@@ -32,10 +35,11 @@ productsData: any;
       { name: 'Stock' },
       { name: 'Actions' },
     ]; */
+    
   }
-
   async ngOnInit() {
     this.getAllProducts();
+   
   }
 
   async getAllProducts(){

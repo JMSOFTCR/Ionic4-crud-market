@@ -11,6 +11,8 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { HttpClientModule} from '@angular/common/http';
 
+
+
 //import { ImagePicker } from '@ionic-native/image-picker';
 
 
@@ -21,7 +23,9 @@ import { HttpClientModule} from '@angular/common/http';
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+   
+
   ],
   providers: [
    // ImagePicker,
