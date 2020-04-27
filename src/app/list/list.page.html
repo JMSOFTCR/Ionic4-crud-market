@@ -38,7 +38,7 @@
                 <th scope="col">Actions</th>   
               </tr>
             </thead>
-          <tr *ngFor="let item of productsData | paginate: { itemsPerPage: 7, currentPage: pageActual }">
+          <tr *ngFor="let item of productsData | paginate: { itemsPerPage: 5, currentPage: pageActual }">
             <ion-avatar >
               <img src="{{item.imagen}}" /> 
             </ion-avatar>
