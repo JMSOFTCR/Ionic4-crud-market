@@ -5,6 +5,8 @@ import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
 
 import {NgxPaginationModule} from 'ngx-pagination';
+import { FilterPipe } from '../pipes/filter.pipe';
+
 
 import { ListPage } from './list.page';
 
@@ -22,7 +24,7 @@ import { ListPage } from './list.page';
     ]),
     
   ],
-  declarations: [ListPage],
+  declarations: [ListPage, FilterPipe],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class ListPageModule {}

@@ -15,6 +15,7 @@ import { AlertController, ToastController, LoadingController } from '@ionic/angu
 export class ListPage implements OnInit {
 pageActual: number = 1;
 productsData: any;
+filterPost= '';
 
 
 //public columns: any;
@@ -57,7 +58,7 @@ productsData: any;
 
   delete(item) {
     //Delete item in Products data
-    this.apiService.deleteItem(item.id).subscribe(Response => {
+    this.apiService.deleteItem(item.idarticulo).subscribe(Response => {
       //update list after delete id successfull
       this.getAllProducts();
     });

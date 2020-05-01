@@ -10,7 +10,7 @@ import { retry, catchError } from 'rxjs/operators';
 export class ApiService {
 
   base_path = 'https://market-api-rest.herokuapp.com/products'
-  //base_path = 'http://localhost:3000/products'
+ // base_path = 'http://localhost:3000/products'
 
   constructor(private http: HttpClient ) { }
 
@@ -49,9 +49,9 @@ export class ApiService {
   }
 
   //get single products data by ID
-   getItem(id): Observable<Products> {
+   getItem(idarticulo): Observable<Products> {
     return this.http
-    .get<Products>(this.base_path + '/' + id)
+    .get<Products>(this.base_path + '/' + idarticulo)
     .pipe(
       retry(2),
       catchError(this.handleError)
@@ -69,9 +69,9 @@ export class ApiService {
   } 
 
   //update Item by id
-  updateItem(id, item): Observable<Products> {
+  updateItem(idarticulo, item): Observable<Products> {
     return this.http 
-    .put<Products>(this.base_path + '/' + id, JSON.stringify(item), this.httpOptions)
+    .put<Products>(this.base_path + '/' + idarticulo, JSON.stringify(item), this.httpOptions)
     .pipe(
       retry(2),
       catchError(this.handleError)
@@ -79,9 +79,9 @@ export class ApiService {
   }
 
   //Delete item by id
-  deleteItem(id) {
+  deleteItem(idarticulo) {
     return this.http
-    .delete<Products>(this.base_path + '/' + id, this.httpOptions)
+    .delete<Products>(this.base_path + '/' + idarticulo, this.httpOptions)
     .pipe(
       retry(2),
       catchError(this.handleError)

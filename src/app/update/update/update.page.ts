@@ -10,29 +10,29 @@ import { ApiService } from '../../services/api.service';
 })
 export class UpdatePage implements OnInit {
 
-  id: number;
-  data: Products;
+  idarticulo: number;
+  p: Products;
 
   constructor(
     public activatedRoute: ActivatedRoute,
     public router: Router,
     public apiService: ApiService
   ) {
-    this.data = new Products();
+    this.p = new Products();
    }
 
   ngOnInit() {
-    this.id = this.activatedRoute.snapshot.params["id"];
+    this.idarticulo = this.activatedRoute.snapshot.params["idarticulo"];
     //get item details using id
-    this.apiService.getItem(this.id).subscribe(response => {
+    this.apiService.getItem(this.idarticulo).subscribe(response => {
       console.log(response);
-      this.data = response;
+      this.p = response;
     })
   }
 
   update(){
     //Update item by taking id and updated data object 
-    this.apiService.updateItem(this.id, this.data).subscribe(response => {
+    this.apiService.updateItem(this.idarticulo, this.p).subscribe(response => {
       this.router.navigate(['list']);
     })
   }

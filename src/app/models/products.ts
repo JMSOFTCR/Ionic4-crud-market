@@ -1,12 +1,12 @@
 export class Products {
-    id?: string;
-    category_id: number;
+    idarticulo?: string;
+    idcategoria: number;
     codigo: string;
-    category_name: string;
-    name: string;
+    nombrecategoria: string;
+    nombre: string;
     stock: number;
-    description: string; 
-    image_url: string;
+    descripcion: string; 
+    imagen: string;
     condicion: string;
     precio_costo: number;
     precio_venta: number;

@@ -8,13 +8,19 @@
 <ion-content padding>
   <ion-item>
     <ion-label>Name</ion-label>
-    <ion-input [(ngModel)]="data.name" placeholder="Enter Name"></ion-input>
+    <ion-input [(ngModel)]="data.nombre" placeholder="Enter Name"></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label>Category ID</ion-label>
-    <ion-input [(ngModel)]="data.category_id" placeholder="Enter Category ID"></ion-input>
+    <ion-input [(ngModel)]="data.idcategoria" placeholder="Enter Category ID"></ion-input>
   </ion-item>
+
+  <ion-item>
+    <ion-label>Warehouse ID:</ion-label>
+    <ion-input [(ngModel)]="data.idwarehouse" placeholder="Enter warehouse"></ion-input>
+  </ion-item>
+
 
   <ion-item>
     <ion-label>Stock</ion-label>
@@ -23,7 +29,7 @@
 
   <ion-item>
     <ion-label>Description</ion-label>
-    <ion-input [(ngModel)]="data.description" placeholder="Enter Description"></ion-input>
+    <ion-input [(ngModel)]="data.descripcion" placeholder="Enter Description"></ion-input>
   </ion-item>
 
  <!--  Button to add -->
