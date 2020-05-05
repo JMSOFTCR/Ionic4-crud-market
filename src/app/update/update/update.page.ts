@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Products } from '../../models/products';
+import { Products } from 'src/app/models/products';
 import { ApiService } from '../../services/api.service';
 
 @Component({
@@ -26,6 +26,7 @@ export class UpdatePage implements OnInit {
     //get item details using id
     this.apiService.getItem(this.idarticulo).subscribe(response => {
       console.log(response);
+      err => console.error(err);
       this.p = response;
     })
   }
